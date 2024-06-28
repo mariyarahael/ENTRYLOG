@@ -6,6 +6,12 @@
     android:gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <ImageView
+        android:layout_width="700px"
+        android:layout_height="700px"
+        android:background="@drawable/studentlogo"
+        android:layout_margin="20px"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,6 +24,7 @@
         android:layout_height="wrap_content"
         android:hint="enter your username"
         android:background="@color/white"
+        android:drawableLeft="@drawable/baseline_account_circle_24"
         android:layout_margin="10px"
         android:id="@+id/uname"/>
 
@@ -36,6 +43,7 @@
         android:layout_margin="10px"
         android:background="@color/white"
         android:inputType="textPassword"
+        android:drawableLeft="@drawable/baseline_lock_24"
         android:id="@+id/pass"/>
 
     <androidx.appcompat.widget.AppCompatButton
