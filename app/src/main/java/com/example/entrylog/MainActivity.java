@@ -1,6 +1,7 @@
 package com.example.entrylog;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -23,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences preference = getSharedPreferences("LoginApp",MODE_PRIVATE);
+        String username = preference.getString("admin",null);
+        if (username!=null)
+        {
+            Intent i=new Intent(getApplicationContext(),PageAdminLogin.class);
+            startActivity(i);
+        }
+
         e1=(EditText) findViewById(R.id.uname);
         e2=(EditText) findViewById(R.id.pass);
         b1=(AppCompatButton) findViewById(R.id.logbut);
@@ -35,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
                if((user.equals("admin"))&&(passw.equals("12345")))
                {
+                   SharedPreferences preference = getSharedPreferences("LoginApp",MODE_PRIVATE);
+                   SharedPreferences.Editor editor = preference.edit();
+                   editor.putString("user","admin");
+                   editor.apply();
                    Intent i= new Intent(getApplicationContext(),PageAdminLogin.class);
                    startActivity(i);
                }
